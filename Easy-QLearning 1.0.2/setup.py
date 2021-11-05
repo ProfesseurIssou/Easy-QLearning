@@ -28,7 +28,7 @@ setup(
             "pytest>=3.7",
         ],
     },
-    url="https://github.com/ProfesseurIssou/EQL",
+    url="https://github.com/ProfesseurIssou/Easy-QLearning",
     author="Hamidou Alix",
     author_email="alix.hamidou@gmail.com",
 )
