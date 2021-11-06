@@ -1,3 +1,18 @@
+# EQL
+
+Simplify the creation of QLearning
+
+
+## Installation
+
+Run the following to install:
+```python
+pip install Easy-QLearning
+```
+
+
+## Usage
+```python
 import EQL
 ####Initialise QTable####
 #Mission: go to the house without run over the human
@@ -22,7 +37,7 @@ actions = [
 ]
 
 #Make QTable
-Qtable = EQL.QLearning(nbAction=4)
+Qtable = EQL.QLearning(nbAction=4,nbState=10)
 
 ####Train the QTable####
 #100 games
@@ -45,7 +60,7 @@ for _ in range(100):
             yTemp += 1
             print("")
         #Choose an action
-        action = Qtable.takeAction(str(state),epsilon=0.4)
+        action = Qtable.takeAction(state,epsilon=0.4)
         #Move the car
         y = max(0, min(y + actions[action][0],2))
         x = max(0, min(x + actions[action][1],2))
@@ -56,7 +71,7 @@ for _ in range(100):
         print("state : ", newState)
         print("reward : ", reward)
         #Update Q function
-        Qtable.updateQFunction(str(newState),str(state),reward)
+        Qtable.updateQFunction(newState,state,reward)
         #Next state
         state = newState
 #Display the QTable
@@ -68,3 +83,9 @@ Qtable.saveQTable("myTable")
 
 #Load my QTable from myTable.npz
 Qtable.loadQTable("myTable")
+```
+
+
+```bash
+$ pip install -e .[dev]
+```
